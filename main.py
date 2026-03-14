@@ -1,5 +1,6 @@
 import random
 import json
+import os
 from fastmcp import FastMCP
 
 mcp = FastMCP(name="Demo Server")
@@ -30,6 +31,6 @@ if __name__ == "__main__":
     # HTTP transport (streamable by default)
     mcp.run(
         transport="http",
-        host="localhost",
-        port=8000
+        host="0.0.0.0",
+        port=int(os.environ.get("PORT",8000))
     )
